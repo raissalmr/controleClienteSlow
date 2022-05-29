@@ -27,4 +27,11 @@ router.delete('/clientes', (req, res)=>{
     })
 })
 
+router.post('/cliente', (req, res)=>{
+    clientes.findClient(req.body.id)
+    .then((results)=>{
+        res.json(results)
+    })
+})
+
 module.exports = router

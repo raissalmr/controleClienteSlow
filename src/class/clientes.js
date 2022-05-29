@@ -22,4 +22,8 @@ module.exports = class Clientes{
     async deletClient(id){
         return await this.connection.execute(`delete from clientes where id = '${id}'`)
     }
+
+    async findClient(id){
+        return await this.connection.execute(`select * from clientes where id = '${id}'`)
+    }
 }
