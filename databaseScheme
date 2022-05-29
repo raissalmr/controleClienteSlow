@@ -1,0 +1,19 @@
+create table clientes(
+    id int(6) auto_increment,
+    nome varchar(30) not null,
+    telefone bigint(14) not null,
+    cpf bigint(11),
+    endereco varchar(150),
+    bairro varchar(40),
+    cidade varchar(40),
+    rg bigint(11),
+    primary key (id)
+ );
+
+ create table entradas(
+    id int(6) auto_increment,
+    nome varchar(50) not null,
+    data datetime,
+    comanda int(8),
+    primary key (id)
+);
