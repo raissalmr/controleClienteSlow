@@ -9,7 +9,7 @@ router.use(express.json())
 router.get('/clientes', (req, res)=>{
     clientes.getClients()
     .then((results)=>{
-        res.json(results)
+        res.json(results[0])
     })
 })
 
@@ -20,7 +20,7 @@ router.post('/clientes',(req, res)=>{
     })
 })
 
-router.delete('/clientes', (req, res)=>{
+router.post('/deleteClient', (req, res)=>{
     clientes.deletClient(req.body.id)
     .then((results)=>{
         res.json(results)
@@ -29,6 +29,20 @@ router.delete('/clientes', (req, res)=>{
 
 router.post('/cliente', (req, res)=>{
     clientes.findClient(req.body.id)
+    .then((results)=>{
+        res.json(results)
+    })
+})
+
+router.post('/addCommand', (req, res)=>{
+    clientes.insertCommand(req.body.id,req.body.command)
+    .then((results)=>{
+        res.json(results)
+    })
+})
+
+router.post('/editClient', (req, res)=>{
+    clientes.editClient(req.body.id,req.body.nome, req.body.telefone, req.body.cpf, req.body.endereco, req.body.bairro, req.body.cidade, req.body.rg)
     .then((results)=>{
         res.json(results)
     })

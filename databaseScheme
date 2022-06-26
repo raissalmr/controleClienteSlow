@@ -2,6 +2,7 @@ create table clientes(
     id int(6) auto_increment,
     nome varchar(30) not null,
     telefone bigint(14) not null,
+    comanda int,
     cpf bigint(11),
     endereco varchar(150),
     bairro varchar(40),
@@ -10,10 +11,8 @@ create table clientes(
     primary key (id)
  );
 
- create table entradas(
+create table login(
     id int(6) auto_increment,
-    nome varchar(50) not null,
-    data datetime,
-    comanda int(8),
-    primary key (id)
+    usuario varchar(50) not null,
+    senha varchar(10) not null
 );
